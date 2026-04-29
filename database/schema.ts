@@ -8,22 +8,12 @@ import { BaseModel, column } from '@adonisjs/lucid/orm'
 import { DateTime } from 'luxon'
 
 export class MemberSchema extends BaseModel {
-  static $columns = ['address', 'createdAt', 'email', 'id', 'name', 'password', 'phone', 'updatedAt'] as const
+  static $columns = ['createdAt', 'id', 'updatedAt'] as const
   $columns = MemberSchema.$columns
-  @column()
-  declare address: string
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime | null
-  @column()
-  declare email: string
   @column({ isPrimary: true })
   declare id: number
-  @column()
-  declare name: string
-  @column({ serializeAs: null })
-  declare password: string
-  @column()
-  declare phone: string
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime | null
 }

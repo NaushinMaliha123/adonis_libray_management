@@ -14,9 +14,11 @@ import router from '@adonisjs/core/services/router'
 router
   .get('/register', [() => import('#controllers/members_controller'), 'create'])
   .use(middleware.guest())
+  .as('members.create')
 router
   .post('/register', [() => import('#controllers/members_controller'), 'store'])
   .use(middleware.guest())
+  .as('members.store')
 
 router.on('/').render('pages/home').as('home')
 

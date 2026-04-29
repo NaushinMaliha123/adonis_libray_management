@@ -1,4 +1,11 @@
 @layout()
+  @if(auth.user)
+    <div class="user-info">
+      <h2>Welcome, {{ auth.user.fullName }}!</h2>
+      <p>Email: {{ auth.user.email }}</p>
+    </div>
+  @end
+
   <div class="hero">
     <h1>It works — welcome to the simplicity of a Hypermedia app</h1>
     <p>A lightweight foundation for building modern web interfaces — straightforward, flexible, and true to the web's core simplicity.</p>
